@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Primary app colors (dark equivalents) -->
+    <color name="colorPrimary">#00B3B3</color>
+    <color name="colorPrimaryVariant">#009999</color>
+    <color name="colorOnPrimary">#FFFFFF</color>
+
+    <!-- Secondary colors -->
+    <color name="colorSecondary">#FFB84D</color>
+    <color name="colorSecondaryVariant">#E69A00</color>
+    <color name="colorOnSecondary">#000000</color>
+
+    <!-- Backgrounds (CRITICAL for dark mode) -->
+    <color name="colorBackground">#121212</color>    <!-- app background -->
+    <color name="colorSurface">#1E1E1E</color>       <!-- surfaces/cards, window background -->
+    <color name="colorOnBackground">#FFFFFF</color>
+    <color name="colorOnSurface">#E0E0E0</color>
+
+    <!-- Text colors -->
+    <color name="textPrimary">#FFFFFF</color>
+    <color name="textSecondary">#BBBBBB</color>
+    <color name="textHint">#888888</color>
+
+    <!-- Error / Warning -->
+    <color name="colorError">#CF6679</color>
+    <color name="colorOnError">#000000</color>
+
+    <!-- Material ripple / overlay -->
+    <color name="colorControlHighlight">#33FFFFFF</color>
+
+    <!-- Teal variants for buttons / highlights -->
+    <color name="teal_700">#03DAC5</color>
+    <color name="teal_200">#80CBC4</color>
+    <color name="teal_50">#37474F</color>
+
+    <!-- Gray shades -->
+    <color name="darker_gray">#999999</color>
+    <color name="lighter_gray">#666666</color>
+
+    <color name="gray_disabled">#555555</color>
+
+</resources>
