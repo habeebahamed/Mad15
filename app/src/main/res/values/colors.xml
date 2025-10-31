@@ -40,6 +40,8 @@
 
     <color name="gray_disabled">#BDBDBD</color>
 
+    <color name="splashBackground">#008080</color> <!-- Teal background -->
+    <color name="splashAccent">#FFA500</color>     <!-- Orange accent -->
 
 
 </resources>

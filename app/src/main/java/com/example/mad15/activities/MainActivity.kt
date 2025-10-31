@@ -13,7 +13,7 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.example.mad15.activities.dashboard.DashboardActivity
 import com.example.mad15.databinding.ActivityMainBinding
 import kotlinx.coroutines.*
-
+import android.widget.TextView
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -35,6 +35,8 @@ class MainActivity : AppCompatActivity() {
         // 2) Inflate view binding and set contentView
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+//        val tagline = findViewById<TextView>(R.id.tvTagline)
+//        tagline.animate().alpha(1f).setDuration(1000L).start()
 
         // 3) Edge-to-edge or UI setup if needed (optional)
         // WindowCompat.setDecorFitsSystemWindows(window, false)
@@ -42,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         // 4) Start startup tasks (load prefs, DB init, check session, remote config, etc.)
         startupScope.launch {
             try {
-                delay(800)
+                delay(1000)
                 val loggedIn = isUserLoggedIn()
                 keepSplashOn = false
 
@@ -59,10 +61,12 @@ class MainActivity : AppCompatActivity() {
 
         // Optional: customize exit animation for the splash icon
         splashScreen.setOnExitAnimationListener { splashView ->
-            // Fade out the splash icon and remove the splash view
             splashView.iconView.animate()
+                .rotationBy(360f)
+                .scaleX(0f)
+                .scaleY(0f)
                 .alpha(0f)
-                .setDuration(200L)
+                .setDuration(800L)
                 .withEndAction { splashView.remove() }
                 .start()
         }

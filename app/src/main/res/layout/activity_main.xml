@@ -1,17 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/rootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white">
+    android:background="@color/splashBackground">
 
+    <!-- Animated App Logo -->
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:src="@drawable/ic_launcher_foreground"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:contentDescription="@string/app_name"
+        android:alpha="0"
+        app:tint="@color/colorOnPrimary" />
+
+    <!-- Tagline / App slogan -->
     <TextView
-        android:id="@+id/tvHello"
+        android:id="@+id/tvTagline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="MainActivity Loaded!"
-        android:textSize="22sp"
-        android:layout_gravity="center" />
+        android:text="@string/txt_made_with_in_sri_lanka"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="80dp"
+        android:alpha="0" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
