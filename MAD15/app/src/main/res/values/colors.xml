@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Primary app colors -->
+    <color name="colorPrimary">#008080</color>        <!-- Teal shade -->
+    <color name="colorPrimaryVariant">#006666</color>
+    <color name="colorOnPrimary">#FFFFFF</color>      <!-- Text/icons on primary -->
+
+    <!-- Secondary colors -->
+    <color name="colorSecondary">#FFA500</color>     <!-- Orange accent -->
+    <color name="colorSecondaryVariant">#CC8400</color>
+    <color name="colorOnSecondary">#000000</color>
+
+    <!-- Backgrounds -->
+    <color name="colorBackground">#FFFFFF</color>
+    <color name="colorSurface">#FFFFFF</color>
+    <color name="colorOnBackground">#000000</color>
+    <color name="colorOnSurface">#000000</color>
+
+    <!-- Text colors -->
+    <color name="textPrimary">#000000</color>
+    <color name="textSecondary">#666666</color>
+    <color name="textHint">#999999</color>
+
+    <!-- Error / Warning -->
+    <color name="colorError">#B00020</color>
+    <color name="colorOnError">#FFFFFF</color>
+
+    <!-- Material ripple / overlay -->
+    <color name="colorControlHighlight">#33008080</color>
+
+    <!-- Teal variants for buttons / highlights -->
+    <color name="teal_700">#007777</color>
+    <color name="teal_200">#80CCCC</color>
+    <color name="teal_50">#E0F2F2</color>
+
+    <!-- Gray shades -->
+    <color name="darker_gray">#444444</color>
+    <color name="lighter_gray">#CCCCCC</color>
+
+    <color name="gray_disabled">#BDBDBD</color>
+
+
+
+</resources>
