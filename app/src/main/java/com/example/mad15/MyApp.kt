@@ -22,5 +22,15 @@ class MyApp : Application() {
         )
             .fallbackToDestructiveMigration() // Drop and recreate DB on version change
             .build()
+
+
+
+
+
+        // Firebase init (optional in latest Gradle plugin, but safe)
+        com.google.firebase.FirebaseApp.initializeApp(this)
+
+        // Optional: enable Firestore local cache (on by default for ktx)
+        // Firebase.firestore.firestoreSettings = firestoreSettings { isPersistenceEnabled = true }
     }
 }

@@ -2,14 +2,12 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/rootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/splashBackground">
 
     <!-- Animated App Logo -->
     <ImageView
-        android:id="@+id/imgLogo"
         android:layout_width="140dp"
         android:layout_height="140dp"
         android:src="@drawable/ic_launcher_foreground"
@@ -20,7 +18,6 @@
 
     <!-- Tagline / App slogan -->
     <TextView
-        android:id="@+id/tvTagline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/txt_made_with_in_sri_lanka"

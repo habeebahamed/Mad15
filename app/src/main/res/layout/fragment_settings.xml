@@ -9,7 +9,6 @@
     android:background="?attr/colorSurface">
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tvThemeLabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Appearance"

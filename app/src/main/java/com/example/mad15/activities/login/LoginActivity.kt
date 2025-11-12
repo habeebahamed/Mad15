@@ -35,13 +35,16 @@ class LoginActivity : AppCompatActivity() {
                 val user = MyApp.database.userDao().getUserByEmail(email)
                 runOnUiThread {
                     if (user != null && user.password == password) {
-                        Toast.makeText(this@LoginActivity, "Login Successful", Toast.LENGTH_SHORT).show()
-                        val intent = Intent(this@LoginActivity, DashboardActivity::class.java)
+                        Toast.makeText(this@LoginActivity,
+                            "Login Successful", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this@LoginActivity,
+                            DashboardActivity::class.java)
                         intent.putExtra("USER_EMAIL", email)
                         startActivity(intent)
                         finish()
                     } else {
-                        Toast.makeText(this@LoginActivity, "Invalid email or password", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@LoginActivity,
+                            "Invalid email or password", Toast.LENGTH_SHORT).show()
                     }
                 }
             }

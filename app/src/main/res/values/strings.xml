@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">MAD15</string>
-    <string name="dashboard">Dashboard</string>
     <string name="txt_login">Login</string>
     <string name="btn_login">Login</string>
     <string name="txt_email">Email</string>
@@ -19,11 +18,9 @@
     <string name="txt_settings">Settings</string>
     <string name="txt_logout">Logout</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="settings_fragment">Settings Fragment</string>
-    <string name="home_fragment">Home Fragment</string>
-    <string name="messages_fragment">Messages Fragment</string>
     <string name="txt_update_profile">Update Profile</string>
     <string name="txt_edit_profile">Edit Profile</string>
     <string name="txt_made_with_in_sri_lanka">Made with ❤️ in Sri Lanka</string>
+    <string name="txt_options">Options</string>
+    <string name="txt_add">Add</string>
 </resources>

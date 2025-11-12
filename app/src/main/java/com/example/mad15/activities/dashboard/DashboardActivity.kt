@@ -25,23 +25,34 @@ class DashboardActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDashboardBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    /*override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDashboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         // Setup Toolbar
-        setSupportActionBar(binding.topAppBar)
-        binding.topAppBar.setNavigationOnClickListener {
+        setSupportActionBar(binding.topAppBar)//
+        binding.topAppBar.inflateMenu(R.menu.top_appbar_menu)
+        binding.topAppBar.setNavigationOnClickListener {//
             binding.drawerLayout.openDrawer(GravityCompat.START)
         }
 
         // Profile icon dropdown menu
         binding.topAppBar.setOnMenuItemClickListener { menuItem ->
-            if (menuItem.itemId == R.id.action_profile) {
-                showProfileDropdown()
-                true
-            } else false
+            when (menuItem.itemId) {
+                R.id.action_profile -> {
+                    showProfileDropdown()
+                    true
+                }
+                R.id.action_add_message -> {
+                    val currentFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainer)
+                    if (currentFragment is MessagesFragment) {
+                        currentFragment.showAddEditMessageDialog()
+                    }
+                    true
+                }
+                else -> false
+            }
         }
 
         // Drawer item click
@@ -64,6 +75,58 @@ class DashboardActivity : AppCompatActivity() {
         loadFragment(HomeFragment())
 
         //  Load logged-in user info to nav header
+        loadUserHeader()
+    }*/
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityDashboardBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        // Setup Toolbar
+        setSupportActionBar(binding.topAppBar)
+//        binding.topAppBar.inflateMenu(R.menu.top_appbar_menu) // Inflate menu right after setup
+        binding.topAppBar.setNavigationOnClickListener {
+            binding.drawerLayout.openDrawer(GravityCompat.START)
+        }
+
+        // Toolbar Menu Item Clicks
+        /*binding.topAppBar.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.action_profile -> {
+                    showProfileDropdown()
+                    true
+                }
+                R.id.action_add_message -> {
+                    val currentFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainer)
+                    if (currentFragment is MessagesFragment) {
+                        currentFragment.showAddEditMessageDialog()
+                    }
+                    true
+                }
+                else -> false
+            }
+        }*/
+
+        // Drawer item click
+        binding.navView.setNavigationItemSelectedListener { menuItem ->
+            handleDrawerClick(menuItem)
+            true
+        }
+
+        // Bottom navigation click
+        binding.bottomNavigation.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_home -> loadFragment(HomeFragment())
+                R.id.nav_messages -> loadFragment(MessagesFragment())
+                R.id.nav_settings -> loadFragment(SettingsFragment())
+            }
+            true
+        }
+
+        // Load default fragment
+        loadFragment(HomeFragment())
+
+        // Load user header
         loadUserHeader()
     }
 
@@ -158,14 +221,43 @@ class DashboardActivity : AppCompatActivity() {
             ?.setTextColor(ContextCompat.getColor(this, R.color.gray_disabled))
     }
 
+//    private fun loadFragment(fragment: Fragment) {
+//        supportFragmentManager.beginTransaction()
+//            .replace(R.id.fragmentContainer, fragment)
+//            .commit()
+//
+//        supportFragmentManager.executePendingTransactions()
+//
+//        val isMessageFragment = fragment is MessagesFragment
+//        Log.d("DashboardActivity", "Fragment loaded: ${fragment::class.simpleName}, Add button visible = $isMessageFragment")
+//
+//        val addItem = binding.topAppBar.menu.findItem(R.id.action_add_message)
+//        if (addItem != null) {
+//            addItem.isVisible = isMessageFragment
+//        } else {
+//            binding.topAppBar.post {
+//                binding.topAppBar.menu.findItem(R.id.action_add_message)?.isVisible = isMessageFragment
+//            }
+//        }
+//    }
     private fun loadFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainer, fragment)
             .commit()
+
+        supportFragmentManager.executePendingTransactions()
+        invalidateOptionsMenu()
+
+        val isMessageFragment = fragment is MessagesFragment
+        Log.d("DashboardActivity", "Fragment loaded: ${fragment::class.simpleName}, Add button visible = $isMessageFragment")
+
+        val addItem = binding.topAppBar.menu.findItem(R.id.action_add_message)
+        addItem?.isVisible = isMessageFragment
     }
 
     override fun onResume() {
         super.onResume()
+
         val userEmail = intent.getStringExtra("USER_EMAIL")
         if (userEmail != null) {
             lifecycleScope.launch {
@@ -181,5 +273,13 @@ class DashboardActivity : AppCompatActivity() {
                 }
             }
         }
+
+        // Check current fragment to update Add button visibility
+        val currentFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainer)
+        val isMessageFragment = currentFragment is MessagesFragment
+        val addItem = binding.topAppBar.menu.findItem(R.id.action_add_message)
+        addItem?.isVisible = isMessageFragment
+
+        Log.d("DashboardActivity", "onResume: Current fragment = ${currentFragment?.javaClass?.simpleName}, Add visible = $isMessageFragment")
     }
 }
